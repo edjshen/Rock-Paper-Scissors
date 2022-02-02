@@ -24,7 +24,7 @@ def validate(user,pc):
         winner = 2
         return winner
     else:
-        print("You broke the game")
+        print("You broke the game \n")
         print("user" + str(user))
         print("pc"+ str(pc))
     
