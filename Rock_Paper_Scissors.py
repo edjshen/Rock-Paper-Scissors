@@ -5,9 +5,32 @@ Spyder Editor
 This is a temporary script file.
 """
 
+import os
+import random
+import time
+
+def validate(user,pc):
+    winner = -1
+    computerList = ["Rock","Paper","Scissors"]
+    numbersList = [0,1,2]
+    possible = {0:0,1:1,2:2,0:2,1:0,2:1}
+    if user == pc:
+        winner = 0
+        return winner
+    elif possible[user] == pc:   
+        winner = 1
+        return winner
+    elif possible[pc] == user:        
+        winner = 2
+        return winner
+    else:
+        print("You broke the game")
+        print("user" + str(user))
+        print("pc"+ str(pc))
+    
 def main():
-    import random
-    import time
+    win =-1
+    player_name = os.getenv("PLAYER_NAME", default=" Player One \n")
     #initiate variables
     valid = 0
     user = 0
@@ -17,7 +40,7 @@ def main():
     numbersList = [0,1,2]
     possible = {0:0,1:1,2:2,0:2,1:0,2:1}
     #introduction text
-    print("Welcome to the Rock Paper Scissors Dojo \n")
+    print("Hello" + player_name + "Welcome to the Rock Paper Scissors Dojo \n")
     time.sleep(1)
     print("Rock")
     time.sleep(1)
@@ -51,16 +74,13 @@ def main():
     computerChoice = computerList[pc]
     print("The computer has chosen " + computerChoice + "\n")
     #indexing to find out who wins
-    if user == pc:
+    win = validate(user,pc)
+    if (win == 0):
         print("It is a tie")
-    elif possible[user] == pc:
+    elif (win == 1):
         print("You win!")
-    elif possible[pc] == user:
+    elif (win == 2):
         print("You lose :(")
-    else:
-        print("You broke the game")
-        print("user" + str(user))
-        print("pc"+ str(pc))
     print("\nThanks for playing!")
     
 main()
