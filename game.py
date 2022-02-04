@@ -28,7 +28,7 @@ def validate(user,pc):
         print("user" + str(user))
         print("pc"+ str(pc))
     
-def main():
+if __name__ == "__main__":
     win =-1
     player_name = os.getenv("PLAYER_NAME", default=" Player One \n")
     #initiate variables
@@ -83,7 +83,7 @@ def main():
         print("You lose :(")
     print("\nThanks for playing!")
     
-main()
+
     
 
 
